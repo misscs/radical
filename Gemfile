@@ -9,3 +9,7 @@ gem "middleman-livereload", "~> 3.1.0"
 
 # For faster file watcher updates on Windows:
 gem "wdm", "~> 0.1.0", :platforms => [:mswin, :mingw]
+
+gem "sass", "~> 3.2.12"
+gem "modular-scale", "~> 1.0.6"
+gem "color-schemer", :git => 'https://github.com/Team-Sass/color-schemer.git'

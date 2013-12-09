@@ -4,8 +4,13 @@
 
 # Change Compass configuration
 # compass_config do |config|
-#   config.output_style = :compact
+   config.output_style = :compressed
 # end
+
+# require 'toolkit'
+require 'color-schemer'
+require 'modular-scale'
+
 
 ###
 # Page options, layouts, aliases and proxies
@@ -20,9 +25,7 @@
 # page "/path/to/file.html", :layout => :otherlayout
 #
 # A path which all have the same layout
-# with_layout :admin do
-#   page "/admin/*"
-# end
+
 
 # Proxy pages (http://middlemanapp.com/dynamic-pages/)
 # proxy "/this-page-has-no-template.html", "/template-file.html", :locals => {
@@ -34,6 +37,8 @@
 
 # Automatic image dimensions on image_tag helper
 # activate :automatic_image_sizes
+
+activate :directory_indexes
 
 # Reload the browser automatically whenever files change
 activate :livereload
@@ -67,4 +72,14 @@ configure :build do
 
   # Or use a different image path
   # set :http_prefix, "/Content/images/"
+end
+
+
+# Assumes the file source/about/template.html.erb exists
+# ["autotax", "Waves of Change"].each do |name|
+#   proxy "/projects/#{name}.html", "/projects/template.html"}
+# end
+
+["autotax", "waves-of-change"].each do |name|
+  proxy "/projects/#{name}.html", "/projects/template.html", :locals => { :project_name => name }, :ignore => true
 end
